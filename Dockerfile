@@ -1,6 +1,6 @@
-FROM python:3.9-alpine
+FROM node:18-alpine
 WORKDIR /app
-COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
-COPY app-notas/app.py .
-CMD ["python", "app.py"]
+COPY package*.json ./
+RUN npm install
+COPY app.js .
+CMD ["node", "app.js"]
