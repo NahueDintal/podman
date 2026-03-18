@@ -1,6 +1,5 @@
-FROM node:18-alpine
-WORKDIR /app
-COPY package*.json ./
-RUN npm install
-COPY app.js .
-CMD ["node", "app.js"]
+FROM nginx:alpine 
+COPY entrypoint.sh /entrypoint.sh
+COPY website/index.html /usr/share/nginx/html/index.html
+RUN chmod +x /entrypoint.sh
+ENTRYPOINT ["/entrypoint.sh"]
