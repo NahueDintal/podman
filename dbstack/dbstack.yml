@@ -1,4 +1,4 @@
-apiVersion: v1
+apiVersion: v1.2
 kind: Pod
 metadata:
   name: dbstack
@@ -22,4 +22,16 @@ spec:
           hostPort: 3000
   volumes:
     - name: mysql-data
-      persistentVolumeClaim: {}
+      persistentVolumeClaim:
+        claimName: mysql-data-claim
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: mysql-data-claim
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 10Gi
