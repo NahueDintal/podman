@@ -1,3 +1,6 @@
-podman kube play dbstack.yml
-
 host.containers.internal
+
+podman pod stop dbstack
+podman pod rm dbstack
+
+podman kube play dbstack.yml
