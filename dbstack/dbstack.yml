@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: dbstack
+spec:
+  containers:
+    - name: mysql
+      image: docker.io/mysql:latest
+      env:
+        - name: MYSQL_ROOT_PASSWORD
+          value: "mi_contraseña_segura"
+      ports:
+        - containerPort: 3306
+          hostPort: 3306
+      volumeMounts:
+        - name: mysql-data
+          mountPath: /var/lib/mysql
+    - name: mysql-workbench
+      image: lscr.io/linuxserver/mysql-workbench:latest
+      ports:
+        - containerPort: 3000
+          hostPort: 3000
+  volumes:
+    - name: mysql-data
+      persistentVolumeClaim: {}
