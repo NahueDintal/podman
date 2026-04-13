@@ -3,4 +3,4 @@ host.containers.internal
 podman pod stop dbstack
 podman pod rm dbstack
 
-podman kube play dbstack.yml
+podman kube play --publish 3000:3000 dbstack.yml
