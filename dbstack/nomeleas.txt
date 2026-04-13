@@ -1,1 +1,3 @@
 podman kube play dbstack.yml
+
+host.containers.internal
