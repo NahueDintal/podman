@@ -1,4 +1,5 @@
 host.containers.internal
+127.0.0.1
 
 podman pod stop dbstack
 podman pod rm dbstack
