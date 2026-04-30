@@ -5,7 +5,7 @@ metadata:
 spec:
   containers:
     - name: mysql
-      image: docker.io/mysql:latest
+      image: docker.io/mysql:8.0
       env:
         - name: MYSQL_ROOT_PASSWORD
           value: "mi_contraseña_segura"
@@ -16,7 +16,7 @@ spec:
         - name: mysql-data
           mountPath: /var/lib/mysql
     - name: mysql-workbench
-      image: lscr.io/linuxserver/mysql-workbench:latest
+      image: lscr.io/linuxserver/mysql-workbench
       ports:
         - containerPort: 3000
           hostPort: 3000
